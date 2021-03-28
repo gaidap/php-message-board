@@ -1,7 +1,10 @@
 <?php
 require 'config.php';
-require 'main/Bootstrap.php';
 
+require 'persistence/RdbmsConnection.php';
+require 'persistence/MessageRepository.php';
+
+require 'main/Bootstrap.php';
 require 'main/BaseController.php';
 require 'main/BaseModel.php';
 

@@ -9,7 +9,6 @@ abstract class BaseController {
   }
 
   function executeAction() {
-    // echo $this->action;
     return $this->{$this->action}();
   }
 
