@@ -1,16 +1,18 @@
 <?php
-class Bootstrap {
+final class Bootstrap {
   private $controller;
   private $action;
   private $request;
 
-  function __construct ($request) {
-    $this->request = $request;
+  private function initController() {
     if ($this->request['controller'] === "") {
       $this->controller = 'home';
     } else {
       $this->controller = $this->request['controller'];
     }
+  }
+
+  private function initAction() {
     if ($this->request['action'] === "") {
       $this->action = 'index';
     } else {
@@ -18,8 +20,15 @@ class Bootstrap {
     }
   }
 
+  function __construct ($request) {
+    $this->request = $request;
+    $this->initController();
+    $this->initAction();
+  }
+
   private function isActionController() {
-    return in_array('Controller', $parents) && method_exists($this->controller, $this->action);
+    $parents = class_parents($this->controller);
+    return in_array('BaseController', $parents) && method_exists($this->controller, $this->action);
   }
 
   function createController() {
@@ -27,9 +36,8 @@ class Bootstrap {
       echo '<h1>Controller does not exist.</h1>';
       return null;
     }
-    $parents = class_parents($this->controller);
-    if($this->isActionController()) {
-      return new $this->controller($this->action, $this->request);
+    if($this->isActionController($parents)) {
+      return new $this->controller($this->request, $this->action);
     } else {
       echo '<h1>Controller or action does not exist.</h1>';
       return null;
