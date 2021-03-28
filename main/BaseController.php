@@ -16,7 +16,7 @@ abstract class BaseController {
   protected function getView($view_model, $is_fullview) {
     $view = 'view/' . get_class($this) . '/' . $this->action . '.php';
     if($is_fullview) {
-      require 'view/main.php';
+      require 'view/Home.php';
     } else {
       require ($view);
     }

@@ -1,6 +1,7 @@
 <?php
 class Home extends BaseController {
   protected function index() {
-    echo 'HOME/INDEX';
+    $view_model = new HomeModel();
+    $this->getView($view_model->index(), $view_model->isFullview());
   }
 }
