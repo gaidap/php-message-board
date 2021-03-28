@@ -6,9 +6,9 @@ final class Bootstrap {
 
   private function initController() {
     if ($this->request['controller'] === "") {
-      $this->controller = 'home';
+      $this->controller = 'home' . 'controller';
     } else {
-      $this->controller = $this->request['controller'];
+      $this->controller = $this->request['controller'] . 'controller';
     }
   }
 

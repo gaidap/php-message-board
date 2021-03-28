@@ -1,5 +1,5 @@
 <?php
-class Messages extends BaseController {
+class MessagesController extends BaseController {
   protected function index() {
     echo 'MESSAGES/INDEX';
   }

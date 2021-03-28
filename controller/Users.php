@@ -1,5 +1,5 @@
 <?php
-class Users extends BaseController {
+class UsersController extends BaseController {
   protected function index() {
     echo 'USERS/INDEX';
   }
