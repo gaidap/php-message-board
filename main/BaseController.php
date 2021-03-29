@@ -12,10 +12,14 @@ abstract class BaseController {
     return $this->{$this->action}();
   }
 
+  private function getViewNameFromControllerClass() {
+    return preg_replace('/controller/', '', strtolower(get_class($this)));
+  }
+
   protected function getView($view_model, $is_fullview) {
-    $view = 'view/' . get_class($this) . '/' . $this->action . '.php';
+    $view = 'view/' . $this->getViewNameFromControllerClass() . '/' . $this->action . '.php';
     if($is_fullview) {
-      require 'view/Home.php';
+      require 'view/main.php';
     } else {
       require ($view);
     }
