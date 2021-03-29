@@ -7,13 +7,20 @@
             <h3><?php echo $item['title']; ?></h3>
             <small><?php echo $item['creation_date']; ?></small>
           </div>
+          <form method="post" action="<?php $_SERVER['PHP_SELF']; ?>">
+            <input type="hidden" name="messageId" value="<?php echo $item['id']; ?>"/>
+            <input type="hidden" name="userId" value="<?php echo $item['user_id']; ?>"/>
+            <input class="btn btn-danger btn-sm" name="deleteMessage" type="submit" value="X" />
+          </form>
         </div>
         <div class="card-body bg-light">
           <div class="card-text">
             <p><?php echo $item['message']; ?></p>
           </div>
           <br>
-          <a class="btn btn-info" href="<?php echo $item['link']; ?>" target="_blank">Go to website</a>
+          <a class="btn btn-info" <?php echo (empty($item['link']) ? 'hidden' : '') ; ?> href="<?php echo $item['link']; ?>" target="_blank">
+          Go to website
+          </a>
         </div>
       </div>
   <?php endforeach; ?>

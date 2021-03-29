@@ -20,6 +20,9 @@ main {
   margin-top:5px;
 }
 
-.message-card .card-title,.card-text,.btn-info {
-  margin-left:0px;
+.message-card .btn-danger {
+  float:right;
+  position: relative;
+  top: -65px;
+  right: -5px;
 }

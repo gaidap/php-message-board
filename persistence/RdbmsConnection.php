@@ -40,6 +40,10 @@ class RdbmsConnection {
     return $this->stmt->execute();
   }
 
+  function fetchLastInsertId() {
+    return $this->dbh->lastInsertId();
+  }
+
   function resultSet() {
     $this->stmt->execute();
     return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
