@@ -1,8 +1,12 @@
 <?php
 class MessageModel extends BaseModel {
 
-  function index () {
+  function index() {
     return $this->repository->fetchAllMessages();
+  }
+
+  function add() {
+    
   }
 
   function isFullview() {

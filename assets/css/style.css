@@ -2,6 +2,24 @@ main {
   margin-top: 75px; /* Add a top margin to avoid content overlay */
 }
 
-.btn-share{
+.btn-message {
 	margin-bottom:20px;
+}
+
+.btn-add-message {
+	margin-top:20px;
+}
+
+.row-whith-wide-cards .card {
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.form-group {
+  margin-top:5px;
+}
+
+.message-card .card-title,.card-text,.btn-info {
+  margin-left:0px;
 }

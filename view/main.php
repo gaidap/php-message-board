@@ -1,8 +1,8 @@
 <html>
   <head>
     <title>Message Board</title>
-    <link rel="stylesheet" href="assets/css/bootstrap.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="<?php echo ROOT_URL;?>/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="<?php echo ROOT_URL;?>/assets/css/style.css">
   </head>
   <body>
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
@@ -33,7 +33,7 @@
     </nav>
 
     <main class="container">
-      <div class="row">
+      <div class="row row-whith-wide-cards">
         <?php require($view); ?>
       </div>
     </main>  
