@@ -26,3 +26,11 @@ main {
   top: -65px;
   right: -5px;
 }
+
+.freepik-disclaimer {
+    float:right;
+    bottom: 0px;
+    position: absolute;
+    margin-bottom:20px;
+    margin-left:20px;
+}

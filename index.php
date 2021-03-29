@@ -4,6 +4,7 @@ require 'config.php';
 require 'persistence/RdbmsConnection.php';
 require 'persistence/BaseRepository.php';
 require 'persistence/MessageRepository.php';
+require 'persistence/UserRepository.php';
 
 require 'main/Bootstrap.php';
 require 'main/BaseController.php';

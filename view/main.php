@@ -3,6 +3,9 @@
     <title>Message Board</title>
     <link rel="stylesheet" href="<?php echo ROOT_URL;?>/assets/css/bootstrap.css">
     <link rel="stylesheet" href="<?php echo ROOT_URL;?>/assets/css/style.css">
+    <link rel="icon" 
+      type="image/png" 
+      href="<?php echo ROOT_URL;?>/assets/icons/responsibility_128px.png">
   </head>
   <body>
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
@@ -31,11 +34,11 @@
         </div>
       </div>
     </nav>
-
     <main class="container">
       <div class="row row-whith-wide-cards">
         <?php require($view); ?>
       </div>
     </main>  
+    <div class="freepik-disclaimer">Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
   </body>
 </html>
