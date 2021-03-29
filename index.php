@@ -11,6 +11,7 @@ require 'persistence/UserRepository.php';
 require 'main/Bootstrap.php';
 require 'main/BaseController.php';
 require 'main/BaseModel.php';
+require 'main/Notification.php';
 
 require 'controller/Home.php';
 require 'controller/Messages.php';

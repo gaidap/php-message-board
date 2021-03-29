@@ -9,7 +9,7 @@ class UserModel extends BaseModel {
       if($sanitized_email) {
         $lastInsertedId = $this->repository->insertUser($post['name'], $sanitized_email, $hashed_password);
       } else {
-        die('You must enter a valid E-Mail address.');
+        Notification::notify('You must enter a valid E-Mail address.', 'error');
       }
       if ($lastInsertedId) {
         header("Location: " . ROOT_URL . '/users/login');
@@ -32,7 +32,7 @@ class UserModel extends BaseModel {
         );
         header("Location: " . ROOT_URL);
       } else {
-        die('Invalid user name or password.');
+        Notification::notify('Invalid user name or password.', 'error');
       }
     }
   }
