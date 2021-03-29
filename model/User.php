@@ -5,10 +5,14 @@ class UserModel extends BaseModel {
     if($post['submitRegister']) {
       $hashed_password = hash('sha256', $post['password']);
       $sanitized_email = filter_var($post['email'], FILTER_SANITIZE_EMAIL);
+      $lastInsertedId;
       if($sanitized_email) {
-        $this->repository->insertUser($post['name'], $sanitized_email, $hashed_password);
+        $lastInsertedId = $this->repository->insertUser($post['name'], $sanitized_email, $hashed_password);
       } else {
         die('You must enter a valid E-Mail address.');
+      }
+      if ($lastInsertedId) {
+        header("Location: " . ROOT_URL . '/users/login');
       }
     }
   }
@@ -18,10 +22,17 @@ class UserModel extends BaseModel {
     if($post['submitLogin']) {
       $hashed_password = hash('sha256', $post['password']);
       $sanitized_email = filter_var($post['email'], FILTER_SANITIZE_EMAIL);
-      if($sanitized_email) {
-        $this->repository->checkUserLogin($sanitized_email, $hashed_password);
+      $found_user = $this->repository->findUserByLogin($sanitized_email, $hashed_password);
+      if($sanitized_email && !empty($found_user)) {
+        $_SESSION['is_logged_in'] = true;
+        $_SESSION['user_data'] = array(
+          "id" => $found_user['id'], 
+          "email" => $found_user['email'], 
+          "name" => $found_user['name'] 
+        );
+        header("Location: " . ROOT_URL);
       } else {
-        die('You must enter a valid E-Mail address.');
+        die('Invalid user name or password.');
       }
     }
   }

@@ -7,11 +7,13 @@
             <h3><?php echo $item['title']; ?></h3>
             <small><?php echo $item['creation_date']; ?></small>
           </div>
-          <form method="post" action="<?php $_SERVER['PHP_SELF']; ?>">
-            <input type="hidden" name="messageId" value="<?php echo $item['id']; ?>"/>
-            <input type="hidden" name="userId" value="<?php echo $item['user_id']; ?>"/>
-            <input class="btn btn-danger btn-sm" name="deleteMessage" type="submit" value="X" />
-          </form>
+          <?php if($_SESSION['user_data']['id'] === $item['user_id']) : ?>
+            <form method="post" action="<?php $_SERVER['PHP_SELF']; ?>">
+              <input type="hidden" name="messageId" value="<?php echo $item['id']; ?>"/>
+              <input type="hidden" name="userId" value="<?php echo $item['user_id']; ?>"/>
+              <input class="btn btn-danger btn-sm" name="deleteMessage" type="submit" value="X" />
+            </form>
+          <?php endif; ?>
         </div>
         <div class="card-body bg-light">
           <div class="card-text">

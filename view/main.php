@@ -19,17 +19,28 @@
             <li class="nav-item">
               <a class="nav-link" aria-current="page" href="<?php echo ROOT_URL . '/home'; ?>">Home</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="<?php echo ROOT_URL . '/messages'; ?>">Messages</a>
-            </li>
+            <?php if(isset($_SESSION['is_logged_in'])) : ?>
+              <li class="nav-item">
+                <a class="nav-link" href="<?php echo ROOT_URL . '/messages'; ?>">Messages</a>
+              </li>
+            <?php endif; ?>
           </ul>
           <ul class="navbar-nav navbar-right">
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="<?php echo ROOT_URL . '/users/register'; ?>">Register</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="<?php echo ROOT_URL . '/users/login'; ?>">Login</a>
-            </li>
+            <?php if(isset($_SESSION['is_logged_in'])) : ?>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="<?php echo ROOT_URL; ?>">Welcome <?php print_r($_SESSION['user_data']['name']); ?></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="<?php echo ROOT_URL . '/users/logout'; ?>">Logout</a>
+              </li>
+            <?php else : ?> 
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="<?php echo ROOT_URL . '/users/register'; ?>">Register</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="<?php echo ROOT_URL . '/users/login'; ?>">Login</a>
+              </li>
+            <?php endif; ?>
           </ul>
         </div>
       </div>

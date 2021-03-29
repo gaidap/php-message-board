@@ -11,21 +11,13 @@ class UserRepository extends BaseRepository {
     $this->rdbms_connection->bindQueryParam(':email', $email);
     $this->rdbms_connection->bindQueryParam(':password', $password);
     $this->rdbms_connection->excecuteQuery();
-
-    if ($this->rdbms_connection->fetchLastInsertId()) {
-      header("Location: " . ROOT_URL . '/users/login');
-    }
+    return $this->rdbms_connection->fetchLastInsertId();
   } 
 
-  function checkUserLogin($email, $password) {
+  function findUserByLogin($email, $password) {
     $this->rdbms_connection->prepareQuery('SELECT * FROM users WHERE email = :email AND password = :password');
     $this->rdbms_connection->bindQueryParam(':email', $email);
     $this->rdbms_connection->bindQueryParam(':password', $password);
-    $found_user = $this->rdbms_connection->resultSet();
-    if(empty($found_user)) {
-      die('Invalid email or password.');
-    } else {
-      header("Location: " . ROOT_URL);
-    }
+    return $this->rdbms_connection->singleResult();
   } 
 }

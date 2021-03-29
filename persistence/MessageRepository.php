@@ -12,10 +12,7 @@ class MessageRepository extends BaseRepository {
     $this->rdbms_connection->bindQueryParam(':message', $message);
     $this->rdbms_connection->bindQueryParam(':link', $link);
     $this->rdbms_connection->excecuteQuery();
-
-    if ($this->rdbms_connection->fetchLastInsertId()) {
-      header("Location: " . ROOT_URL . '/messages');
-    }
+    return $this->rdbms_connection->fetchLastInsertId();
   } 
 
   function deleteMessage($messageId, $userId) {
