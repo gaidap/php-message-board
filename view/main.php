@@ -20,6 +20,14 @@
               <a class="nav-link" href="<?php echo ROOT_URL . '/messages'; ?>">Messages</a>
             </li>
           </ul>
+          <ul class="navbar-nav navbar-right">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="<?php echo ROOT_URL . '/users/register'; ?>">Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="<?php echo ROOT_URL . '/users/login'; ?>">Login</a>
+            </li>
+          </ul>
         </div>
       </div>
     </nav>
