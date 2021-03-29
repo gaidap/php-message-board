@@ -2,7 +2,7 @@
 class MessageModel extends BaseModel {
 
   function index () {
-    return MessageRepository::fetchAllMessages($this->rdbms_connection);
+    return $this->repository->fetchAllMessages();
   }
 
   function isFullview() {

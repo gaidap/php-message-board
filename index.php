@@ -2,6 +2,7 @@
 require 'config.php';
 
 require 'persistence/RdbmsConnection.php';
+require 'persistence/BaseRepository.php';
 require 'persistence/MessageRepository.php';
 
 require 'main/Bootstrap.php';

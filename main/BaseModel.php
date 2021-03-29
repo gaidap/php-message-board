@@ -1,8 +1,8 @@
 <?php
 abstract class BaseModel {
-  protected $rdbms_connection;
+  protected $repository;
 
-  function __construct() {
-    $this->rdbms_connection = new RdbmsConnection();
+  function __construct($repository) {
+    $this->repository = $repository;
   }
 }
