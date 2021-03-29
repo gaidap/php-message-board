@@ -19,5 +19,11 @@ class UserRepository extends BaseRepository {
     $this->rdbms_connection->bindQueryParam(':email', $email);
     $this->rdbms_connection->bindQueryParam(':password', $password);
     return $this->rdbms_connection->singleResult();
+  }
+  
+  function findUserByEmail($email) {
+    $this->rdbms_connection->prepareQuery('SELECT * FROM users WHERE email = :email');
+    $this->rdbms_connection->bindQueryParam(':email', $email);
+    return $this->rdbms_connection->singleResult();
   } 
 }
