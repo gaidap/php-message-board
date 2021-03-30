@@ -10,6 +10,8 @@ You have to specify the following env variables on your server:
 
 And also you have to create a database with the name specified in DB_NAME.  
 You will have to create the schema by yourself, you can youse the exported sql files inside /schema.  
+Also you have to specifiy the ROOT_PATH and the ROOT_URL pointing to your environment,  
+e.g. ROOT_URL = http://localhost and ROOT_PATH = /my-directory/  
   
 Have fun!
 
