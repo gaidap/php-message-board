@@ -5,13 +5,13 @@ class UserModel extends BaseModel {
     if ($post['submitRegister']) {
       if (strlen($post['password']) < 6) {
         Notification::notify('Password must not be empty and has to be at least 6 characters long.', 'error');
-        return;
+        return '';
       }
       $hashed_password = hash('sha256', $post['password']);
       $sanitized_email = filter_var($post['email'], FILTER_VALIDATE_EMAIL);
       if ($sanitized_email && !empty($this->repository->findUserByEmail($sanitized_email))) {
         Notification::notify('Email is already taken.', 'error');
-        return;
+        return '';
       }
       $lastInsertedId;
       if ($sanitized_email) {
@@ -23,6 +23,7 @@ class UserModel extends BaseModel {
         header("Location: " . ROOT_URL . '/users/login');
       }
     }
+    return '';
   }
 
   function login() {
@@ -43,9 +44,10 @@ class UserModel extends BaseModel {
         Notification::notify('Invalid user name or password.', 'error');
       }
     }
+    return '';
   }
 
-  function isFullview() {
+  function withMainview() {
     return true;
   }
 }

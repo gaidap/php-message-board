@@ -21,13 +21,14 @@ class MessageModel extends BaseModel {
       } else {
         $lastInsertedId = $this->repository->insertMessage($_SESSION['user_data']['id'], $post['title'], $post['message'], $sanitized_url);
       }
-      if ($lastInsertedId ) {
+      if ($lastInsertedId) {
         header("Location: " . ROOT_URL . '/messages');
       }
     }
+    return '';
   }
 
-  function isFullview() {
+  function withMainview() {
     return true;
   }
 }

@@ -5,4 +5,6 @@ abstract class BaseModel {
   function __construct($repository) {
     $this->repository = $repository;
   }
+
+  abstract function withMainview();
 }

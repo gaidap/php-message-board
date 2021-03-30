@@ -4,7 +4,7 @@ class HomeModel {
     return '';
   }
 
-  function isFullview() {
+  function withMainview() {
     return true;
   }
 }

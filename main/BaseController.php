@@ -16,9 +16,9 @@ abstract class BaseController {
     return preg_replace('/controller/', '', strtolower(get_class($this)));
   }
 
-  protected function getView($view_model, $is_fullview) {
+  protected function getView($action_response, $with_mainview) {
     $view = 'view/' . $this->getViewNameFromControllerClass() . '/' . $this->action . '.php';
-    if($is_fullview) {
+    if($with_mainview) {
       require 'view/main.php';
     } else {
       require ($view);
