@@ -18,5 +18,8 @@ Have fun!
 ## My disclaimer
 Be warned this is only a learning project. All code residing in this project and or repo is my attempt to learn 
 how to build websites with OOP and PHP and database persistence.  
-So it is possible that some code maybe not best practice or standard. 
+So it is possible that some code maybe not best practice or standard.
+
+## FAV-Icon
+Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
 
