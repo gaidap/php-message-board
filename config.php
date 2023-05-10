@@ -6,5 +6,5 @@ define('DB_PASSWORD', getenv('DB_PASSWORD'));
 define('DB_NAME', getenv('DB_NAME'));
 
 // Application Params
-define('ROOT_PATH', '/');
-define('ROOT_URL', 'http://php.local');
+define('ROOT_PATH', '/message-board');
+define('ROOT_URL', 'http://localhost/message-board');

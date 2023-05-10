@@ -1,8 +1,12 @@
 <?php
-abstract class BaseRepository {
-  protected $rdbms_connection;
+declare(strict_types=1);
 
-  function __construct() {
-    $this->rdbms_connection = new RdbmsConnection();
-  }
+abstract class BaseRepository
+{
+    protected RdbmsConnection $rdbms_connection;
+
+    public function __construct()
+    {
+        $this->rdbms_connection = new RdbmsConnection();
+    }
 }

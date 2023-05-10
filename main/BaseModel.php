@@ -1,10 +1,12 @@
 <?php
-abstract class BaseModel {
-  protected $repository;
+declare(strict_types=1);
 
-  function __construct($repository) {
+abstract class BaseModel {
+  protected BaseRepository $repository;
+
+  public function __construct(BaseRepository $repository) {
     $this->repository = $repository;
   }
 
-  abstract function withMainview();
+  abstract public function withMainView();
 }

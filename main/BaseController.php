@@ -1,24 +1,28 @@
 <?php
-abstract class BaseController {
-  protected $request;
-  protected $action;
+declare(strict_types=1);
 
-  function __construct($request, $action) {
+abstract class BaseController {
+  protected array $request;
+  protected string $action;
+
+  public function __construct(array $request, string $action) {
     $this->request = $request;
     $this->action = $action;
   }
 
-  function executeAction() {
+  public function executeAction() {
     return $this->{$this->action}();
   }
 
-  private function getViewNameFromControllerClass() {
-    return preg_replace('/controller/', '', strtolower(get_class($this)));
+  private function getViewNameFromControllerClass(): array|string|null
+  {
+    return str_replace("controller", '', strtolower(get_class($this)));
   }
 
-  protected function getView($action_response, $with_mainview) {
+  protected function loadView(mixed $ACTION_RESPONSE, bool $withMainView): void
+  {
     $view = 'view/' . $this->getViewNameFromControllerClass() . '/' . $this->action . '.php';
-    if($with_mainview) {
+    if($withMainView) {
       require 'view/main.php';
     } else {
       require ($view);

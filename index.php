@@ -13,13 +13,13 @@ require 'main/BaseController.php';
 require 'main/BaseModel.php';
 require 'main/Notification.php';
 
-require 'controller/Home.php';
-require 'controller/Messages.php';
-require 'controller/Users.php';
+require 'controller/HomeController.php';
+require 'controller/MessagesController.php';
+require 'controller/UsersController.php';
 
-require 'model/Home.php';
-require 'model/Message.php';
-require 'model/User.php';
+require 'model/HomeModel.php';
+require 'model/MessageModel.php';
+require 'model/UserModel.php';
 
 $bootstrap = new Bootstrap($_GET);
 $controller = $bootstrap->createController();
